@@ -100,4 +100,60 @@ class Solution(object):
         cur.next = list1 if list1 else list2
         return d.next
 
+'''19. Remove Nth Node From End of List'''
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: Optional[ListNode]
+        :type n: int
+        :rtype: Optional[ListNode]
+        """
+        right = head
+        left = head
 
+        for i in range(n):
+            right = right.next
+        # Special cases, removing the head node
+        if not right:
+            return head.next
+        
+        while right.next:
+            right = right.next
+            left = left.next
+        
+        #skip the nth element
+        left.next = left.next.next
+        return head
+    
+'''erase(self, index) is index-based and removes a node at a given position from the start.
+remove_nth_last_node(head, n) is position-from-end-based and removes a node relative to the end of the list.
+'''
+
+'''203 Remove Linked List Elements'''
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def removeElements(self, head, val):
+        """
+        :type head: Optional[ListNode]
+        :type val: int
+        :rtype: Optional[ListNode]
+        """
+        while head and head.val == val:
+            head = head.next
+        cur_node = head
+        while cur_node and cur_node.next:
+            if cur_node.next.val == val:
+                cur_node.next = cur_node.next = cur_node.next.next
+            else:
+                cur_node = cur_node.next
+        return head
+        
