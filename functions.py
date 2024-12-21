@@ -19,3 +19,25 @@ for index, value in enumerate(fruits, start=1):
 fruits = ['apple', 'banana', 'cherry']
 result = list(enumerate(fruits))
 print(result)
+
+import re
+sentence = "Hello    World   Python"
+print(re.sub(' +', ' ', sentence))  # Output: "Hello World Python"
+
+#reversing
+nums = (1, 2, 3, 4)
+reversed_nums = nums[::-1]
+print(reversed_nums)  # Output: (4, 3, 2, 1)
+
+words = ["apple", "banana", "cherry"]
+reversed_words = words[::-1]
+print(reversed_words)  # Output: ['cherry', 'banana', 'apple']
+
+#join
+words = ['Hello', 'World']
+print(" ".join(words))  # Output: "Hello World"
+
+#split
+s = "Hello World! Welcome to Python."
+result = s.split()
+print(result)  # Output: ['Hello', 'World!', 'Welcome', 'to', 'Python.']
