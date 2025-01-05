@@ -27,3 +27,12 @@ def detect_cycle(head):
         if slow == fast:
             return True
     return False
+
+'''middle of the linked list'''
+def middleNode(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
